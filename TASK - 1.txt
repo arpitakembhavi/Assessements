@@ -1,0 +1,265 @@
+INTRODUCTION TO JAVA
+
+1.public class SumComparison {
+    public static void main(String[] args) {
+        // Declare integer variables
+        int a = 5;
+        int b = 10;
+        int c = 8;
+        int d = 3;
+
+        // Check if the sum of a and b is greater than the sum of c and d
+        if (a + b > c + d) {
+            System.out.println("The sum of a and b is greater than the sum of c and d.");
+        } else {
+            System.out.println("The sum of a and b is not greater than the sum of c and d.");
+        }
+    }
+}
+
+Output: The sum of a and b is greater than the sum of c and d.
+
+
+
+2.public class EvenNumberChecker {
+    public static void main(String[] args) {
+        // Store an integer in a variable
+        int number = 24; // You can change this number to any integer you'd like to check
+
+        // Check if it's an even number using the modulo operator
+        if (number % 2 == 0) {
+            System.out.println(number + " is an even number.");
+        } else {
+            System.out.println(number + " is not an even number.");
+        }
+    }
+}
+
+Output: 24 is an even number.
+
+
+3.public class PrintAlphabets {
+    public static void main(String[] args) {
+        // Print characters from 'A' to 'Z'
+        char startChar = 'A';
+        char endChar = 'Z';
+
+        System.out.println("Characters from A to Z:");
+
+        for (char ch = startChar; ch <= endChar; ch++) {
+            System.out.print(ch + " ");
+        }
+    }
+}
+
+Output: Characters from A to Z:
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+
+
+4.import java.util.Scanner;
+
+public class SwapNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the first number from the user
+        System.out.print("Enter the first number: ");
+        int firstNumber = scanner.nextInt();
+
+        // Get the second number from the user
+        System.out.print("Enter the second number: ");
+        int secondNumber = scanner.nextInt();
+
+        // Swap the values using an additional variable
+        int temp = firstNumber;
+        firstNumber = secondNumber;
+        secondNumber = temp;
+
+        // Print the swapped values
+        System.out.println("After swapping:");
+        System.out.println("First number: " + firstNumber);
+        System.out.println("Second number: " + secondNumber);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+Output: Enter the first number: 5
+Enter the second number: 8
+After swapping:
+First number: 8
+Second number: 5
+
+
+5.import java.util.Scanner;
+
+public class PrimeNumberChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number from the user
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        // Check if the number is prime
+        boolean isPrime = isPrime(number);
+
+        // Print the result
+        if (isPrime) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Function to check if a number is prime
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+Output: Enter a number: 5
+5 is a prime number.
+
+Enter a number: 9
+9 is not a prime number.
+
+
+6.import java.util.Scanner;
+
+public class FactorialCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number from the user
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        // Calculate the factorial
+        long factorial = 1;
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        // Print the factorial
+        System.out.println(number + "! = " + factorial);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+Output: Enter a number: 4
+4! = 24
+
+
+7.public class StringLength {
+    public static void main(String[] args) {
+        // Given string
+        String msg = "Guvi Geek";
+
+        // Calculate and print the length of the string
+        int length = msg.length();
+        System.out.println("Length of the string: " + length);
+    }
+}
+
+Output: Length of the string: 9
+
+
+8.public class PrintMessage {
+    public static void main(String[] args) {
+        // Define the message to be printed
+        String message = "Welcome To Guvi";
+
+        // Print the message 10 times
+        for (int i = 0; i < 10; i++) {
+            System.out.println(message);
+        }
+    }
+}
+
+Output: Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+Welcome To Guvi
+
+
+9.import java.util.Scanner;
+
+public class SeniorCitizenChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the age from the user
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        // Check if the person is a senior citizen (age 60 or above)
+        if (age >= 60) {
+            System.out.println("You are a senior citizen.");
+        } else {
+            System.out.println("You are not a senior citizen.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+Output: Enter your age: 45
+You are not a senior citizen.
+
+Enter your age: 72
+You are a senior citizen.
+
+
+10.import java.util.Scanner;
+
+public class DigitCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the integer from the user
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        // Count the number of digits
+        int digitCount = 0;
+        int tempNumber = number;
+        while (tempNumber != 0) {
+            tempNumber /= 10;
+            digitCount++;
+        }
+
+        // Print the number of digits
+        System.out.println("Number of digits: " + digitCount);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+Output: Enter an integer: 5
+Number of digits: 1
+
+Enter an integer: 13
+Number of digits: 2
