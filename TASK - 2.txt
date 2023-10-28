@@ -1,0 +1,242 @@
+JAVA PROGRAMMING QUESTIONS
+
+1. import java.util.Scanner;
+
+public class PalindromeCheck {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+        scanner.close();
+
+        // Remove spaces and convert the string to lowercase
+        String cleanedString = inputString.replaceAll("\\s", "").toLowerCase();
+
+        // Initialize variables for loop iteration
+        int length = cleanedString.length();
+        boolean isPalindrome = true;
+
+        // Use a for loop to compare characters from start to end and end to start
+        for (int i = 0; i < length / 2; i++) {
+            if (cleanedString.charAt(i) != cleanedString.charAt(length - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Output the result
+        if (isPalindrome) {
+            System.out.println("The given string is a palindrome.");
+        } else {
+            System.out.println("The given string is not a palindrome.");
+        }
+    }
+}
+
+Output:Enter a string: 10
+The given string is not a palindrome.
+
+Enter a string: 5
+The given string is a palindrome.
+
+
+2.import java.util.Scanner;
+
+public class ReverseString {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+        scanner.close();
+
+        // Use StringBuilder to reverse the input string
+        StringBuilder reversedString = new StringBuilder(inputString).reverse();
+
+        // Output the reversed string
+        System.out.println("Reversed string: " + reversedString);
+    }
+}
+
+Output: Enter a string: 42
+Reversed string: 24
+
+3. import java.util.Scanner;
+
+public class NumberPattern {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        scanner.close();
+        
+        int number = 1;
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(number + " ");
+                number++;
+            }
+            System.out.println();
+        }
+    }
+}
+
+Output: Enter the number of rows: 4
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+
+4. import java.util.Scanner;
+
+public class StarPattern {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        scanner.close();
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows; j++) {
+                if (i == j || j == rows - i + 1) { (checks whether the current position corresponds to the main diagonal or the anti-diagonal)
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+Output: 
+*   *
+ * *
+  *
+ * *
+*   *
+
+5. import java.util.Scanner;
+
+public class GradeCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the marks: ");
+        int marks = scanner.nextInt();
+        scanner.close();
+
+        // Check if marks are valid
+        if (marks < 0 || marks > 100) {
+            System.out.println("Invalid Input");
+        } else {
+            // Put the grade based on the given criteria
+            char grade;
+            if (marks >= 90 && marks <= 100) {
+                grade = 'A';
+            } else if (marks >= 80) {
+                grade = 'B';
+            } else if (marks >= 70) {
+                grade = 'C';
+            } else if (marks >= 60) {
+                grade = 'D';
+            } else if (marks >= 50) {
+                grade = 'E';
+            } else {
+                grade = 'F';
+            }
+
+            // Output 
+            System.out.println("Grade: " + grade);
+        }
+    }
+}
+
+Output: Enter the marks: 85
+Grade: B
+
+6.import java.util.Scanner;
+
+public class HotelTariffCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input: Month, room rent per day, and number of days stayed
+        int month = scanner.nextInt();
+        double roomRent = scanner.nextDouble();
+        int numDays = scanner.nextInt();
+
+        scanner.close();
+
+        // Variable to store the total hotel tariff
+        double totalTariff;
+
+        // Apply a 20% increase for peak seasons (April-June and November-December)
+        switch (month) {
+            case 4:
+            case 5:
+            case 6:
+            case 11:
+                roomRent = roomRent * 1.20; // 20% increase
+                break;
+            default:
+                break;
+        }
+
+        // Calculate total tariff
+        totalTariff = roomRent * numDays;
+
+        // Output the total tariff with 2 decimal places
+        System.out.printf("%.2f", totalTariff);
+    }
+}
+
+Output: 3
+
+1500
+
+2
+3000.00
+
+7.import java.util.Scanner;
+
+public class LargestNumber {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input: Three numbers
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+
+        scanner.close();
+
+        // Find the largest number
+        int largestNumber = num1;
+
+        if (num2 > largestNumber) {
+            largestNumber = num2;
+        }
+
+        if (num3 > largestNumber) {
+            largestNumber = num3;
+        }
+
+        // Output the largest number
+        System.out.println("The largest number is: " + largestNumber);
+    }
+}
+
+Output: Enter the first number: 30
+Enter the second number: 25
+Enter the third number: 40
+The largest number is: 40
