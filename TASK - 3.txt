@@ -1,0 +1,385 @@
+JAVA OOPS
+
+1. public class Person {
+    private String name;
+    private int age;
+
+    // initialize name and age attributes
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Getter method for age
+    public int getAge() {
+        return age;
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        Person person1 = new Person("Tina", 22);
+
+        // Getting and printing the attributes using getter methods
+        System.out.println("Name: " + person1.getName()); 
+        System.out.println("Age: " + person1.getAge());   
+    }
+} 
+
+Output: 
+Name: Tina
+Age: 22
+
+
+
+2. public class Employee {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int salary;
+
+    public Employee(int id, String firstName, String lastName, int salary) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
+
+    // Getter methods
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    // Setter method
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    // Calculate annual salary
+    public int getAnnualSalary() {
+        return salary * 12;
+    }
+
+    // Raise salary by a specified percentage
+    public void raiseSalary(int percent) {
+        double raiseSalary = 1 + (percent / 100.0);
+        salary = (int) (salary * raiseSalary);
+    }
+
+    // ToString method
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + getName() + ", salary=" + salary + "]";
+    }
+
+    public static void main(String[] args) {
+        Employee employee = new Employee(1, "Arpita", "Khan", 40000);
+        System.out.println("Original Salary: " + employee.getSalary());
+        employee.raiseSalary(10);
+        System.out.println("Updated Salary: " + employee.getSalary());
+        System.out.println("Annual Salary: " + employee.getAnnualSalary());
+        System.out.println(employee.toString());
+    }
+}
+
+Output: 
+Original Salary: 40000
+Updated Salary: 44000
+Annual Salary: 528000
+Employee [id=1, name=Arpita Khan, salary=44000]
+
+
+3. public class Circle {
+    private double radius;
+
+    // No-argument constructor
+    public Circle() {
+        this.radius = 1.0; // Default radius is 1.0 if not specified
+    }
+
+    // Constructor with radius as an argument
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Method to calculate circumference
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    // Getter method for radius
+    public double getRadius() {
+        return radius;
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        // Creating circle objects using different constructors
+        Circle circle1 = new Circle(); // Default radius (1.0)
+        Circle circle2 = new Circle(3.5); // Specified radius (3.5)
+
+        // Calculating and printing circumferences
+        System.out.println("Circumference of circle 1: " + circle1.calculateCircumference());
+        System.out.println("Circumference of circle 2: " + circle2.calculateCircumference());
+    }
+}
+
+Output:
+Circumference of circle 1: 6.283185307179586
+Circumference of circle 2: 21.991148575128552
+
+
+4. public class Account {
+    // Data member: balance of the account
+    private double balance;
+
+    // No-argument constructor to set default balance to 0.0
+    public Account() {
+        this.balance = 0.0;
+    }
+
+    // Constructor with initial balance as an argument
+    public Account(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    // Method to deposit money into the account
+    public void deposit(double amount) {
+        // Ensure the deposited amount is non-negative
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit of $" + amount + " successful. Current balance: $" + balance);
+        } else {
+            System.out.println("Invalid deposit amount. Please deposit a positive amount.");
+        }
+    }
+
+    // Method to withdraw money from the account
+    public void withdraw(double amount) {
+        // Ensure sufficient balance and non-negative withdrawal amount
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawal of $" + amount + " successful. Current balance: $" + balance);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient balance.");
+        }
+    }
+
+    // Main method for testing the Account class
+    public static void main(String[] args) {
+        // Creating Account objects using different constructors
+        Account account1 = new Account(); // Default balance (0.0)
+        Account account2 = new Account(100.0); // Initial balance (100.0)
+
+        // Depositing and withdrawing from accounts
+        account1.deposit(50.0);
+        account2.withdraw(30.0);
+        account1.withdraw(80.0);
+    }
+}
+
+Output:
+Deposit of $50.0 successful. Current balance: $50.0
+Withdrawal of $30.0 successful. Current balance: $70.0
+Invalid withdrawal amount or insufficient balance.
+
+
+5.public class Tea {
+    private boolean isTeaPrepared;
+    private boolean hasMilk;
+    private boolean hasSugar;
+
+    // Constructor initializes tea preparation status
+    public Tea() {
+        isTeaPrepared = false;
+        hasMilk = false;
+        hasSugar = false;
+    }
+
+    // Method to prepare basic tea with hot water and tea leaves
+    public void prepareTea() {
+        if (!isTeaPrepared) {
+            System.out.println("Preparing basic tea with hot water and tea leaves.");
+            isTeaPrepared = true;
+        } else {
+            System.out.println("Tea is already prepared.");
+        }
+    }
+
+    // Method to add milk to the tea
+    public void addMilk() {
+        if (isTeaPrepared && !hasMilk) {
+            System.out.println("Adding milk to the tea.");
+            hasMilk = true;
+        } else if (!isTeaPrepared) {
+            System.out.println("Tea is not prepared yet. Cannot add milk.");
+        } else {
+            System.out.println("Milk is already added.");
+        }
+    }
+
+    // Method to add sugar to the tea
+    public void addSugar() {
+        if (isTeaPrepared && !hasSugar) {
+            System.out.println("Adding sugar to the tea.");
+            hasSugar = true;
+        } else if (!isTeaPrepared) {
+            System.out.println("Tea is not prepared yet. Cannot add sugar.");
+        } else {
+            System.out.println("Sugar is already added.");
+        }
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        Tea tea = new Tea();
+        tea.prepareTea();
+        tea.addMilk();
+        tea.addSugar();
+        tea.prepareTea(); // Trying to prepare tea again
+        tea.addMilk();    // Trying to add milk again
+        tea.addSugar();    // Trying to add sugar again
+    }
+}
+
+Output:
+Preparing basic tea with hot water and tea leaves.
+Adding milk to the tea.Adding sugar to the tea.
+Tea is already prepared.
+Milk is already added.
+Sugar is already added.
+
+
+6. class Tea {
+    public void prepareTea() {
+        System.out.println("Preparing basic tea with hot water and tea leaves.");
+    }
+}
+
+// BlackTea class, a subclass of Tea
+class BlackTea extends Tea {
+    
+    public void prepareTea() {
+        System.out.println("Preparing Black Tea with hot water, tea leaves, and boiling for 3 minutes.");
+    }
+}
+
+// GreenTea class, a subclass of Tea
+class GreenTea extends Tea {
+    
+    public void prepareTea() {
+        System.out.println("Preparing Green Tea with hot water, tea leaves, and steeping for 2 minutes.");
+    }
+}
+
+// HerbalTea class, a subclass of Tea
+class HerbalTea extends Tea {
+    
+    public void prepareTea() {
+        System.out.println("Preparing Herbal Tea with hot water, herbs, and steeping for 5 minutes.");
+    }
+}
+
+// Main class for testing
+class TeaMain {
+    public static void main(String[] args) {
+        // Creating objects of different tea types
+        BlackTea blackTea = new BlackTea();
+        GreenTea greenTea = new GreenTea();
+        HerbalTea herbalTea = new HerbalTea();
+
+        // Preparing and printing different types of tea
+        System.out.println("Preparing Black Tea:");
+        blackTea.prepareTea();
+
+        System.out.println("\nPreparing Green Tea:");
+        greenTea.prepareTea();
+
+        System.out.println("\nPreparing Herbal Tea:");
+        herbalTea.prepareTea();
+    }
+}
+
+Output:
+Preparing Black Tea:
+Preparing Black Tea with hot water, tea leaves, and boiling for 3 minutes.
+
+Preparing Green Tea:
+Preparing Green Tea with hot water, tea leaves, and steeping for 2 minutes.
+
+Preparing Herbal Tea:
+Preparing Herbal Tea with hot water, herbs, and steeping for 5 minutes.
+
+
+7. // Tea class
+class Tea {
+    public void prepareTea() {
+        System.out.println("Preparing basic tea with hot water and tea leaves.");
+    }
+}
+
+// BlackTea class, a subclass of Tea
+class BlackTea extends Tea {
+    
+    public void prepareTea() {
+        System.out.println("Preparing Black Tea with hot water, tea leaves, and boiling for 3 minutes.");
+    }
+}
+
+// GreenTea class, a subclass of Tea
+class GreenTea extends Tea {
+ 
+    public void prepareTea() {
+        System.out.println("Preparing Green Tea with hot water, tea leaves, and steeping for 2 minutes.");
+    }
+}
+
+// HerbalTea class, a subclass of Tea
+class HerbalTea extends Tea {
+    
+    public void prepareTea() {
+        System.out.println("Preparing Herbal Tea with hot water, herbs, and steeping for 5 minutes.");
+    }
+}
+
+// Main class for testing polymorphism
+class TeaMain {
+    public static void main(String[] args) {
+        // Creating an array of Tea objects (including subclasses)
+        Tea[] teas = new Tea[4];
+        teas[0] = new Tea();
+        teas[1] = new BlackTea();
+        teas[2] = new GreenTea();
+        teas[3] = new HerbalTea();
+
+        // Iterating through the array and preparing tea using polymorphism
+        for (Tea tea : teas) {
+            tea.prepareTea();
+        }
+    }
+}
+
+Output: 
+Preparing basic tea with hot water and tea leaves.
+Preparing Black Tea with hot water, tea leaves, and boiling for 3 minutes.
+Preparing Green Tea with hot water, tea leaves, and steeping for 2 minutes.
+Preparing Herbal Tea with hot water, herbs, and steeping for 5 minutes.
